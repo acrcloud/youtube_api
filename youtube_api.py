@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # encoding: utf-8
-# 访问 http://tool.lu/pyc/ 查看更多信息
 import requests
 import time
 from lxml import etree
