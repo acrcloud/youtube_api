@@ -1,4 +1,7 @@
-import python_youtube_api
-youtube = python_youtube_api.YoutubeAPI('XXXXXXX')
-data = youtube.search('vevo', 'channel', 5, 5)
+#!/usr/bin/env python
+# coding:utf-8
+
+import youtube_api
+youtube = youtube_api.YoutubeAPI('XXXXXXX')
+data = youtube.search('vevo', 'channel', 50, 100, 'US')
 print data
