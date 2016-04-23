@@ -123,7 +123,7 @@ class YoutubeAPI:
 
         return uploads
 
-    def search(self, keyword='', type='', maxresults=5, num=0, region='US'):
+    def search(self, keyword='', type='', maxresults=50, num=0, region='US'):
         # type: the type of result
         # maxresults: the maximum number of items that should be returned in the result set
         # num: number of you need
