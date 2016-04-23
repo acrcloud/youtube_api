@@ -21,22 +21,19 @@ class YoutubeAPI:
         self.max_get_retries = 10
 
     
-    def getapidata(self, url, params = None, headers = None):
+    def getapidata(self, url, params=None, headers=None):
         retries = self.max_get_retries
+        print url
         while retries > 0:
-            data = requests.get(url, params = params, headers = headers)
+            data = requests.get(url, params=params, headers=headers)
             retries -= 1
-            if not data.status_code == 429:
-                if 500 <= data.status_code:
-                    pass
-                data.status_code < 600
-                if 1:
-                    if retries < 0:
-                        raise 
-                    print 'retrying delay ' + str(1) + ' seconds......'
+            if data.status_code == 429 or (500 <= data.status_code < 600):
+                if retries < 0:
+                    raise
+                else:
+                    print ('retrying delay ' + '1' + ' seconds......')
                     time.sleep(1)
-                    continue
-            return data
+
         print '*' * 50
         print 'check your network and url'
         print '*' * 50
