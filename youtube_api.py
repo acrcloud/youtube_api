@@ -94,14 +94,14 @@ class YoutubeAPI:
             'key': self.youtube_key
         }
         apidata = self.getapidata(api_url, params)
-        (items, pagetoken) = self.json_list(apidata)
+        items, pagetoken = self.json_list(apidata)
         for l in items:
             videoid = l['contentDetails']['videoId']
             videoid_collection.append(videoid)
         while pagetoken:
             params['pageToken'] = pagetoken
             apidata = self.getapidata(api_url, params)
-            (items, pagetoken) = self.json_list(apidata)
+            items, pagetoken = self.json_list(apidata)
             print pagetoken
             for item in items:
                 videoid = item['contentDetails']['videoId']
@@ -127,7 +127,7 @@ class YoutubeAPI:
         # type: the type of result
         # maxresults: the maximum number of items that should be returned in the result set
         # num: number of you need
-        # region: reguion code , default is US
+        # region: region code , default is US
         api_url = self.api_list['search.list']
         params = {
             'q': keyword,
@@ -159,18 +159,18 @@ class YoutubeAPI:
             return items, pagetoken
 
         if num == 0:
-            (items, pagetoken) = req()
+            items, pagetoken = req()
             get_item(items)
             while pagetoken:
                 params['pageToken'] = pagetoken
-                (items, pagetoken) = req()
+                items, pagetoken = req()
                 get_item(items)
         else:
-            (items, pagetoken) = req()
+            items, pagetoken = req()
             get_item(items)
             while pagetoken and len(itemlist) < num:
                 params['pageToken'] = pagetoken
-                (items, pagetoken) = req()
+                items, pagetoken = req()
                 get_item(items)
         data = dict(zip(titlelist, itemlist))
 
