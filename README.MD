@@ -25,7 +25,6 @@ import youtube_api
 youtube = youtube_api.YoutubeAPI('Your api key from Google Api Console')
 data = youtube.search('vevo', 'channel', 50, 100, 'US')
 print data
-
 ```
 
 ### Get playlists by channel id 
@@ -33,12 +32,13 @@ print data
 ```python
 #!/usr/bin/env python
 # coding:utf-8
+# params:
+# channel id
 
 import youtube_api
 youtube = youtube_api.YoutubeAPI('Your api key from Google Api Console')
 data = youtube.get_playlistid_by_channelid('UC-9-kyTW8ZkZNDHQJ6FgpwQ')
 print data
-
 ```
 
 ### Get video id by playlist id 
@@ -46,6 +46,8 @@ print data
 ```python
 #!/usr/bin/env python
 # coding:utf-8
+# params:
+# playlist id
 
 import youtube_api
 youtube = youtube_api.YoutubeAPI('Your api key from Google Api Console')
@@ -58,6 +60,8 @@ print data
 ```python
 #!/usr/bin/env python
 # coding:utf-8
+# params:
+# user's channel id
 
 import youtube_api
 youtube = youtube_api.YoutubeAPI('Your api key from Google Api Console')
@@ -70,6 +74,8 @@ print data
 ```python
 #!/usr/bin/env python
 # coding:utf-8
+# params:
+# video id
 
 import youtube_api
 youtube = youtube_api.YoutubeAPI
@@ -82,6 +88,9 @@ print data
 ```python
 #!/usr/bin/env python
 # coding:utf-8
+# params:
+# username
+
 import youtube_api
 youtube = youtube_api.YoutubeAPI
 data = youtube.get_channelid_by_username('TaylorSwiftVEVO')
@@ -93,9 +102,11 @@ print data
 ```python
 #!/usr/bin/env python
 # coding:utf-8
+# params:
+# channel id
+
 import youtube_api
 youtube = youtube_api.YoutubeAPI
-
 data = youtube.verify_channel('UCANLZYMidaCbLQFWXBC95Jg')
 print data
 ```
