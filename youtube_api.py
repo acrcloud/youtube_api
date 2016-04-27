@@ -31,13 +31,14 @@ class YoutubeAPI:
             retries -= 1
             if data.status_code == 429 or (500 <= data.status_code < 600):
                 if retries < 0:
+                    print '*' * 50
+                    print 'check your network and url'
+                    print '*' * 50
                     raise
                 else:
                     print ('retrying delay ' + '1' + ' seconds......')
                     time.sleep(1)
-        print '*' * 50
-        print 'check your network and url'
-        print '*' * 50
+
 
     @staticmethod
     def json_list(apidata):
